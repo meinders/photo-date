@@ -147,13 +147,13 @@ public class PhotoDate
 			Date dateDigitized = null;
 			Date dateOriginal = null;
 
-			ExifIFD0Directory exifIFD0Directory = metadata.getDirectory( ExifIFD0Directory.class );
+			ExifIFD0Directory exifIFD0Directory = metadata.getFirstDirectoryOfType( ExifIFD0Directory.class );
 			if ( exifIFD0Directory != null )
 			{
 				dateTime = exifIFD0Directory.getDate( ExifIFD0Directory.TAG_DATETIME );
 			}
 
-			ExifSubIFDDirectory exifSubIFDDirectory = metadata.getDirectory( ExifSubIFDDirectory.class );
+			ExifSubIFDDirectory exifSubIFDDirectory = metadata.getFirstDirectoryOfType( ExifSubIFDDirectory.class );
 			if ( exifSubIFDDirectory != null )
 			{
 				dateDigitized = exifSubIFDDirectory.getDate( ExifSubIFDDirectory.TAG_DATETIME_DIGITIZED );
